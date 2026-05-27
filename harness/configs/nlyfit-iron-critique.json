@@ -1,0 +1,8 @@
+{
+  "projectName": "nlyfit-iron-critique",
+  "task": "Write a tight critique of the 'Iron' design concept for NLYFit (a personal-training brand). Iron is refined dark-industrial: near-black background, orange (#ff5b1f) accent, Archivo Black display type with mono detail text. Cover three things: (1) market appeal for the target audience of serious lifters / committed athletes, (2) the likely conversion drivers and friction points on the page, (3) the single strongest edit you'd make. Keep it under 250 words and avoid generic design-feedback platitudes.",
+  "maxIterations": 4,
+  "tokenBudget": 20000,
+  "minImprovementPct": 2,
+  "efficiencyThreshold": 0.05
+}

@@ -1,0 +1,15 @@
+{
+  "projectName": "nlyfit-iron-hero-tsx",
+  "task": "Write a complete Next.js 16 hero section component for NLYFit's 'Iron' design, intended to live at app/design-1/_components/Hero.tsx as a Server Component (no 'use client'). The Iron design is refined dark-industrial: bg-iron-bg is near-black, the accent is orange (#ff5b1f, available as text-iron-orange / bg-iron-orange), and the display font is Archivo Black (font-iron-display). Body text uses Archivo Regular (font-iron-body). Mono is reserved for data (font-iron-mono).\n\nNLYFit is a serious personal training service for committed athletes and lifters. The hero must include:\n- A nav bar (logo on left; 3 nav links + a CTA button on the right)\n- A massive headline making a confident commitment-to-progress statement (font-iron-display)\n- A short supporting subhead in body type\n- A primary CTA button (orange, leads to /book)\n- A small eyebrow tag above the headline with mono detail text (e.g., 'EST. 2024 — IN-PERSON COACHING')\n- A hero image slot using next/image and a placeholder Unsplash URL\n\nOutput ONLY the .tsx file contents — no markdown fences, no explanation, no preamble. Must be valid TypeScript/JSX that would compile with Next.js 16, React 19, and Tailwind v4. Use semantic HTML and accessible attributes (alt text, aria where appropriate). Do not import anything that doesn't exist (no shadcn, no lucide, no external libraries beyond next/image).",
+  "maxIterations": 4,
+  "tokenBudget": 50000,
+  "minImprovementPct": 2,
+  "efficiencyThreshold": 0.05,
+  "weights": {
+    "accuracy": 0.20,
+    "efficiency": 0.10,
+    "code_quality": 0.40,
+    "user_experience": 0.15,
+    "market_appeal": 0.15
+  }
+}

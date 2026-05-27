@@ -10,6 +10,24 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Iron design tokens (design-1) — namespaced to avoid colliding with
+     volt-* / atl-* when those designs come online. Palette matches the
+     handoff source's IRON object exactly. */
+  --color-iron-bg: #0e0e0e;
+  --color-iron-panel: #171717;
+  --color-iron-card: #1d1d1d;
+  --color-iron-line: #2a2a2a;
+  --color-iron-concrete: #c9c4bb;
+  --color-iron-paper: #f4f0e8;
+  --color-iron-orange: #ff5b1f;
+  --color-iron-orange-dim: #d44c1a;
+  --color-iron-text: #f4f0e8;
+  --color-iron-text-dim: #9a958c;
+  --color-iron-text-muted: #5e5b54;
+  --font-iron-display: var(--font-archivo-black);
+  --font-iron-body: var(--font-archivo);
+  --font-iron-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {

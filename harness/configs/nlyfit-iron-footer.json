@@ -1,0 +1,15 @@
+{
+  "projectName": "nlyfit-iron-footer",
+  "task": "Write a complete Next.js 16 Server Component at app/design-1/_components/Footer.tsx that renders the IRON design's Footer. Output ONLY the .tsx file contents — no markdown fences, no explanation, no preamble.\n\n=== AVAILABLE TAILWIND TOKENS ===\nColors: bg-iron-bg #0e0e0e, bg-iron-panel #171717, bg-iron-card #1d1d1d, border-iron-line #2a2a2a, text-iron-paper / text-iron-text #f4f0e8, text-iron-text-dim #9a958c, text-iron-text-muted #5e5b54, bg-iron-orange / text-iron-orange #ff5b1f.\nFonts: font-iron-display (Archivo Black), font-iron-body (Archivo), font-iron-mono (JetBrains Mono).\n\n=== STRUCTURE ===\n<footer> element: bg-iron-bg px-6 pt-16 pb-8 lg:px-14 lg:pt-[64px] lg:pb-8\n\nTop row (flex justify-between items-start mb-14):\n  Left — wordmark block:\n    <p> or <div> with font-iron-display text-[80px] leading-[0.9] tracking-tight text-iron-text:\n      NLY<span text-iron-orange>/</span>FIT\n    Below: tagline in font-iron-mono text-[11px] text-iron-text-dim mt-3 tracking-[0.14em] uppercase:\n      'NEXT LEVEL YOU FITNESS · AKRON, OH'\n  Right — nav columns (flex gap-14, font-iron-mono text-xs text-iron-text-dim tracking-[0.08em]):\n    Column 1 (SITE):\n      Header: text-iron-text-muted text-[10px] tracking-[0.12em] mb-2.5 block: 'SITE'\n      Links (flex flex-col gap-2.5): Programs, About, Gallery — each an <a> with hover:text-iron-text transition-colors\n    Column 2 (SOCIAL):\n      Header: text-iron-text-muted text-[10px] tracking-[0.12em] mb-2.5 block: 'SOCIAL'\n      Links (flex flex-col gap-2.5): Instagram, TikTok, YouTube — each an <a href='#'> with hover:text-iron-text transition-colors\n\nBottom row (pt-6 border-t border-iron-line flex justify-between items-center font-iron-mono text-[11px] text-iron-text-muted tracking-[0.08em]):\n  Left: '© 2026 NEXT LEVEL YOU FITNESS LLC'\n  Right: 'MADE IN THE GARAGE'\n\n=== CONSTRAINTS ===\n- Server Component (no 'use client').\n- No imports needed except standard React (none required for a pure JSX Server Component).\n- Semantic HTML: <footer>, <nav> for link columns, <a> for links.\n- Tailwind utilities + iron-* tokens only — no inline styles.\n- Output ONLY the .tsx file contents.",
+  "maxIterations": 3,
+  "tokenBudget": 50000,
+  "minImprovementPct": 2,
+  "efficiencyThreshold": 0.05,
+  "weights": {
+    "accuracy": 0.35,
+    "efficiency": 0.10,
+    "code_quality": 0.35,
+    "user_experience": 0.10,
+    "market_appeal": 0.10
+  }
+}

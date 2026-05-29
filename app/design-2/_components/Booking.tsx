@@ -1,11 +1,11 @@
-const days = [
+const days: { label: string; date: string; active?: true }[] = [
   { label: "MON", date: "25" },
   { label: "TUE", date: "26" },
   { label: "WED", date: "27", active: true },
   { label: "THU", date: "28" },
   { label: "FRI", date: "29" },
   { label: "SAT", date: "30" },
-] as const;
+];
 
 const slots = ["6:00A", "7:30A", "12:00P", "4:30P", "6:00P"] as const;
 const ACTIVE_SLOT = "12:00P";

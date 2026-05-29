@@ -14,7 +14,7 @@ export default function About() {
         <div className="relative">
           <div className="relative aspect-[4/5] border border-iron-line">
             <Image
-              src="https://images.unsplash.com/photo-1603503363848-6952525df449?w=1400&q=80&auto=format&fit=crop"
+              src="/design-1-coach.png"
               fill
               sizes="(max-width:1024px) 100vw, 45vw"
               className="object-cover"

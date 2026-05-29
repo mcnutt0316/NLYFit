@@ -1,6 +1,16 @@
 import Image from "next/image";
 
-const programs = [
+type Program = {
+  no: string;
+  name: string;
+  sub: string;
+  desc: string;
+  price: string;
+  featured?: boolean;
+  src: string;
+};
+
+const programs: Program[] = [
   {
     no: "I",
     name: "Foundations",
@@ -34,7 +44,7 @@ const programs = [
     price: "499",
     src: "https://images.unsplash.com/photo-1546484475-7f7bd55792da?w=1400&q=80&auto=format&fit=crop",
   },
-] as const;
+];
 
 export default function Programs() {
   return (

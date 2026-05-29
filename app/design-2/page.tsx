@@ -1,10 +1,27 @@
+import Nav from "./_components/Nav";
+import Hero from "./_components/Hero";
+import Partners from "./_components/Partners";
+import Programs from "./_components/Programs";
+import About from "./_components/About";
+import Offer from "./_components/Offer";
+import Pricing from "./_components/Pricing";
+import Testimonials from "./_components/Testimonials";
+import Booking from "./_components/Booking";
+import Footer from "./_components/Footer";
+
 export default function Design2Page() {
   return (
-    <main className="flex flex-1 items-center justify-center p-8">
-      <div className="text-center">
-        <h1 className="text-3xl font-semibold">Design 2</h1>
-        <p className="mt-2 text-zinc-600">Awaiting design from Claude Design.</p>
-      </div>
+    <main className="flex-1 overflow-hidden">
+      <Nav />
+      <Hero />
+      <Partners />
+      <Programs />
+      <About />
+      <Offer />
+      <Pricing />
+      <Testimonials />
+      <Booking />
+      <Footer />
     </main>
   );
 }

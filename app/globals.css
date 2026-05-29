@@ -28,6 +28,21 @@
   --font-iron-display: var(--font-archivo-black);
   --font-iron-body: var(--font-archivo);
   --font-iron-mono: var(--font-jetbrains-mono);
+
+  /* Volt design tokens (design-2) */
+  --color-volt-bg: #0a0d0a;
+  --color-volt-bg-alt: #0f1310;
+  --color-volt-panel: #141813;
+  --color-volt-card: #1a1f1a;
+  --color-volt-line: #262c25;
+  --color-volt-volt: #c8ff2e;
+  --color-volt-volt-dim: #a8d520;
+  --color-volt-ink: #f3f6ed;
+  --color-volt-ink-dim: #a7ada1;
+  --color-volt-muted: #5e6358;
+  --font-volt-display: var(--font-archivo-black);
+  --font-volt-body: var(--font-archivo);
+  --font-volt-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {

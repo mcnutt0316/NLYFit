@@ -5,6 +5,7 @@ import Programs from "./_components/Programs";
 import About from "./_components/About";
 import Pricing from "./_components/Pricing";
 import Testimonials from "./_components/Testimonials";
+import Gallery from "./_components/Gallery";
 
 export default function Design3Page() {
   return (
@@ -16,6 +17,7 @@ export default function Design3Page() {
       <About />
       <Pricing />
       <Testimonials />
+      <Gallery />
     </main>
   );
 }

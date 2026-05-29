@@ -7,6 +7,7 @@ import Pricing from "./_components/Pricing";
 import Testimonials from "./_components/Testimonials";
 import Gallery from "./_components/Gallery";
 import Booking from "./_components/Booking";
+import Footer from "./_components/Footer";
 
 export default function Design3Page() {
   return (
@@ -20,6 +21,7 @@ export default function Design3Page() {
       <Testimonials />
       <Gallery />
       <Booking />
+      <Footer />
     </main>
   );
 }

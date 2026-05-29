@@ -4,17 +4,17 @@ const designs = [
   {
     slug: "design-1",
     label: "Design 1",
-    description: "Style to be defined by Claude Design",
+    description: "Industrial-dark. Bold orange. Built for serious lifters.",
   },
   {
     slug: "design-2",
     label: "Design 2",
-    description: "Style to be defined by Claude Design",
+    description: "Neon-electric. Data-driven. Wired for performance.",
   },
   {
     slug: "design-3",
     label: "Design 3",
-    description: "Style to be defined by Claude Design",
+    description: "Editorial luxury. Warm serif. Magazine-grade coaching.",
   },
 ];
 

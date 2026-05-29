@@ -4,8 +4,8 @@ export type CriterionName =
   | "accuracy"
   | "efficiency"
   | "code_quality"
-  | "user_experience"
-  | "market_appeal";
+  | "spec_fidelity"
+  | "semantic_quality";
 
 export interface RubricCriterion {
   name: CriterionName;
@@ -44,8 +44,8 @@ export interface EvaluatorScores {
   accuracy: number;
   efficiency: number;
   code_quality: number;
-  user_experience: number;
-  market_appeal: number;
+  spec_fidelity: number;   // did the output follow every explicit spec requirement?
+  semantic_quality: number; // correct HTML semantics, ARIA, no unnecessary abstractions
 }
 
 export interface EvaluatorResult {
@@ -77,6 +77,7 @@ export interface IterationResult {
 export type ExitReason =
   | "max-iterations"
   | "score-plateau"
+  | "regression"       // score dropped from previous iter — stop before it gets worse
   | "efficiency-floor"
   | "token-budget";
 

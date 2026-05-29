@@ -9,7 +9,7 @@
     "accuracy": 0.35,
     "efficiency": 0.10,
     "code_quality": 0.35,
-    "user_experience": 0.10,
-    "market_appeal": 0.10
+    "spec_fidelity": 0.10,
+    "semantic_quality": 0.10
   }
 }

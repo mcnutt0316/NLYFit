@@ -47,7 +47,16 @@ export function buildEvaluatorSystemPrompt(rubric: Rubric): string {
     ``,
     renderRubricForEvaluator(rubric),
     ``,
-    `Each criterion is scored 0..10 (whole or half points). Be honest and demanding — avoid grade inflation. 7 is "solid, with notable room to improve". 9+ is reserved for genuinely excellent output.`,
+    `SCORING CALIBRATION (apply strictly):`,
+    `- 10: Flawless on this dimension — nothing to improve, could ship as-is.`,
+    `- 9:  Excellent — only the most pedantic nitpick could improve it.`,
+    `- 8:  Good — solid work, one clear and addressable improvement available.`,
+    `- 7:  Acceptable — notable issues but delivers the core value.`,
+    `- 6 or below: Significant problem on this dimension.`,
+    ``,
+    `A first-pass output that meets all spec requirements should score 8–8.5 on most criteria. Reserve 9+ for genuinely standout work. Do NOT cluster at 9 across the board — be honest about which dimensions are actually excellent vs merely adequate.`,
+    ``,
+    `PRIOR FEEDBACK RULE: If a <prior_eval> block is included in the user message, you MUST read it before scoring. Do not recommend reverting a change you explicitly requested in a prior evaluation — if the primary addressed your feedback, acknowledge it. Score the improvement relative to what you asked for, not against some new standard.`,
     ``,
     `Respond with STRICT JSON only — no prose, no markdown fences, no preamble. Shape:`,
     `{`,
@@ -55,8 +64,8 @@ export function buildEvaluatorSystemPrompt(rubric: Rubric): string {
     `    "accuracy": <number 0-10>,`,
     `    "efficiency": <number 0-10>,`,
     `    "code_quality": <number 0-10>,`,
-    `    "user_experience": <number 0-10>,`,
-    `    "market_appeal": <number 0-10>`,
+    `    "spec_fidelity": <number 0-10>,`,
+    `    "semantic_quality": <number 0-10>`,
     `  },`,
     `  "justification": "<3-6 sentences. Be specific. Name the single biggest improvement the primary should make next iteration.>"`,
     `}`,
@@ -193,8 +202,18 @@ export async function callEvaluator(
   systemPrompt: string,
   task: string,
   primaryOutput: string,
+  priorEval?: { scores: EvaluatorScores; justification: string },
 ): Promise<EvaluatorResult> {
-  const userPrompt = `Grade the primary agent's output against the task below. Respond with strict JSON only.\n\n<task>\n${task}\n</task>\n\n<output>\n${primaryOutput}\n</output>`;
+  const priorBlock = priorEval
+    ? [
+        `<prior_eval>`,
+        `Prior scores: ${JSON.stringify(priorEval.scores)}`,
+        `Prior feedback: ${priorEval.justification}`,
+        `</prior_eval>`,
+        ``,
+      ].join("\n")
+    : "";
+  const userPrompt = `${priorBlock}Grade the primary agent's output against the task below. Respond with strict JSON only.\n\n<task>\n${task}\n</task>\n\n<output>\n${primaryOutput}\n</output>`;
 
   const first = await callClaudeCli({ model, systemPrompt, userPrompt });
   const parsed = tryParseEval(first.text);
@@ -254,8 +273,8 @@ function tryParseEval(text: string): ParsedEval | null {
       "accuracy",
       "efficiency",
       "code_quality",
-      "user_experience",
-      "market_appeal",
+      "spec_fidelity",
+      "semantic_quality",
     ];
     const scores: Partial<EvaluatorScores> = {};
     for (const k of keys) {

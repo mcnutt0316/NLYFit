@@ -63,11 +63,20 @@ export async function runLoop(opts: LoopOptions): Promise<RunSummary> {
     );
 
     // --- Evaluator turn ---
+    // Pass the previous iteration's eval so the evaluator can avoid contradicting its own feedback.
+    const priorEval =
+      iterations.length > 0
+        ? {
+            scores: iterations[iterations.length - 1].scores,
+            justification: iterations[iterations.length - 1].justification,
+          }
+        : undefined;
     const evalResult = await callEvaluator(
       config.evaluatorModel,
       evaluatorSystem,
       config.task,
       primary.text,
+      priorEval,
     );
 
     const finalScore = scoreToFinal(evalResult.scores, rubric);
@@ -137,6 +146,11 @@ export async function runLoop(opts: LoopOptions): Promise<RunSummary> {
     }
     // Plateau + efficiency checks need iter >= 2 (we have a real delta).
     if (iter >= 2) {
+      if (scoreDelta < 0) {
+        // Score went backwards — stop immediately, don't iterate into a worse state.
+        exitReason = "regression";
+        break;
+      }
       if (improvementPct < config.minImprovementPct) {
         exitReason = "score-plateau";
         break;
@@ -157,12 +171,12 @@ export async function runLoop(opts: LoopOptions): Promise<RunSummary> {
         `- accuracy: ${evalResult.scores.accuracy}`,
         `- efficiency: ${evalResult.scores.efficiency}`,
         `- code_quality: ${evalResult.scores.code_quality}`,
-        `- user_experience: ${evalResult.scores.user_experience}`,
-        `- market_appeal: ${evalResult.scores.market_appeal}`,
+        `- spec_fidelity: ${evalResult.scores.spec_fidelity}`,
+        `- semantic_quality: ${evalResult.scores.semantic_quality}`,
         ``,
         `Feedback: ${evalResult.justification}`,
         ``,
-        `Produce an improved version. Address the feedback directly.`,
+        `Produce an improved version. Address the feedback directly. Focus on whichever criterion scored lowest.`,
       ].join("\n"),
     });
 

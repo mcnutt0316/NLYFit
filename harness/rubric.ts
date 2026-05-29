@@ -28,16 +28,16 @@ export const DEFAULT_RUBRIC: Rubric = {
         "For code outputs: clarity, correctness, idiomatic style, error handling. For non-code outputs: structural quality — logical flow, clean organization, sound reasoning.",
     },
     {
-      name: "user_experience",
+      name: "spec_fidelity",
       weight: 0.2,
       description:
-        "Would the target audience find this useful and pleasant? Is it pitched at the right level? Is it actionable?",
+        "Did the output follow every explicit requirement in the task spec, literally and completely? Go through each stated requirement one by one. Penalize omissions, unsolicited additions, and deviations from explicit instructions. 10 = nothing missing, nothing added, every detail correct. First-pass code that hits all spec requirements should score 8–8.5 here, not 9.",
     },
     {
-      name: "market_appeal",
+      name: "semantic_quality",
       weight: 0.2,
       description:
-        "Does it land emotionally / commercially with its intended audience? Would someone share it, act on it, or buy in?",
+        "For code: correct HTML element choice (section/article/figure/blockquote/cite vs div soup), ARIA attributes where needed (aria-hidden, aria-label), no unnecessary abstractions or extra wrappers, no redundant CSS. For non-code: logical soundness, no unsupported leaps, clear structure. 9+ requires zero semantic violations detectable from source.",
     },
   ],
 };
@@ -76,7 +76,7 @@ export function scoreToFinal(scores: EvaluatorScores, rubric: Rubric): number {
   return Math.round(total * 10 * 100) / 100; // two decimals
 }
 
-/** What the primary agent sees: names + weights only, no grading guidance. */
+/** What the primary agent sees: names + weights + criterion intent (no grading cutoff language). */
 export function simplifiedForPrimary(rubric: Rubric): SimplifiedRubric {
   return {
     criteria: rubric.criteria.map((c) => ({ name: c.name, weight: c.weight })),
@@ -104,6 +104,6 @@ export const CRITERION_NAMES: CriterionName[] = [
   "accuracy",
   "efficiency",
   "code_quality",
-  "user_experience",
-  "market_appeal",
+  "spec_fidelity",
+  "semantic_quality",
 ];

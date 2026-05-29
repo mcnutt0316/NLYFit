@@ -43,6 +43,22 @@
   --font-volt-display: var(--font-archivo-black);
   --font-volt-body: var(--font-archivo);
   --font-volt-mono: var(--font-jetbrains-mono);
+
+  /* Atelier design tokens (design-3) */
+  --color-atl-paper: #efe8d6;
+  --color-atl-paper-alt: #e6ddc3;
+  --color-atl-bg-dark: #1c1916;
+  --color-atl-ink: #1c1916;
+  --color-atl-ink-dim: #5a544a;
+  --color-atl-muted: #8a8273;
+  --color-atl-rust: #b04f25;
+  --color-atl-rust-dark: #8a3d1b;
+  --color-atl-divider: #cdc2a8;
+  --color-atl-cream: #f5efe1;
+  --color-atl-gold: #d4a437;
+  --font-atl-serif: var(--font-instrument-serif);
+  --font-atl-body: var(--font-archivo);
+  --font-atl-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {

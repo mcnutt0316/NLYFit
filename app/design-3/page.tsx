@@ -3,6 +3,7 @@ import Hero from "./_components/Hero";
 import Philosophy from "./_components/Philosophy";
 import Programs from "./_components/Programs";
 import About from "./_components/About";
+import Pricing from "./_components/Pricing";
 
 export default function Design3Page() {
   return (
@@ -12,6 +13,7 @@ export default function Design3Page() {
       <Philosophy />
       <Programs />
       <About />
+      <Pricing />
     </main>
   );
 }

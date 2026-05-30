@@ -42,8 +42,8 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section className="px-14 py-[110px]" aria-labelledby="volt-programs-heading">
-      <header className="mb-12 flex items-end justify-between">
+    <section className="px-6 lg:px-14 py-[110px]" aria-labelledby="volt-programs-heading">
+      <header className="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
           <p className="font-volt-mono mb-3.5 text-[11px] uppercase tracking-[0.18em] text-volt-volt">
             / 01 — What we do
@@ -64,7 +64,7 @@ export default function Programs() {
       </header>
 
       <ul
-        className="grid grid-cols-3 gap-5 list-none m-0 p-0"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0"
         role="list"
       >
         {programs.map(({ tag, name, desc, src }) => (
@@ -77,7 +77,7 @@ export default function Programs() {
                 src={src}
                 alt={`${name} program`}
                 fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover object-center"
               />
               <span className="font-volt-mono absolute left-3.5 top-3.5 rounded-full bg-volt-volt px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-volt-bg">

@@ -30,7 +30,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-[3] grid grid-cols-2 items-center gap-8 px-14">
+      <div className="relative z-[3] grid grid-cols-1 lg:grid-cols-2 items-center gap-8 px-6 lg:px-14">
         {/* Left: text */}
         <div>
           <div className="font-volt-mono mb-7 inline-flex items-center gap-2.5 rounded-full border border-volt-line bg-volt-panel px-4 py-2 text-[11px] uppercase tracking-[0.12em] text-volt-ink">
@@ -84,13 +84,13 @@ export default function Hero() {
         </div>
 
         {/* Right: hero photo + floating badges */}
-        <div className="relative h-[640px]">
+        <div className="relative hidden h-[640px] lg:block">
           <div className="absolute inset-0 -translate-y-5">
             <Image
               src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1400&q=80&auto=format&fit=crop"
               alt="Athlete in training"
               fill
-              sizes="50vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center"
               priority
             />

@@ -24,10 +24,10 @@ const quotes = [
 export default function Testimonials() {
   return (
     <section
-      className="bg-volt-bg-alt px-14 py-[110px]"
+      className="bg-volt-bg-alt px-6 lg:px-14 py-[110px]"
       aria-labelledby="volt-testimonials-heading"
     >
-      <header className="mb-12 flex items-end justify-between">
+      <header className="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
           <p className="font-volt-mono mb-3.5 text-[11px] uppercase tracking-[0.18em] text-volt-volt">
             / 04 — Real results
@@ -47,7 +47,7 @@ export default function Testimonials() {
         </div>
       </header>
 
-      <ul className="grid grid-cols-3 gap-5 list-none m-0 p-0" role="list">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none m-0 p-0" role="list">
         {quotes.map(({ q, name, detail, src }) => (
           <li
             key={name}

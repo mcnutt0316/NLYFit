@@ -8,8 +8,8 @@ const credentials = [
 
 export default function About() {
   return (
-    <section className="border-b border-atl-divider bg-atl-bg-dark px-14 py-[120px] text-atl-paper">
-      <div className="grid grid-cols-[1fr_1.3fr] items-center gap-16">
+    <section className="border-b border-atl-divider bg-atl-bg-dark px-6 lg:px-14 py-[120px] text-atl-paper">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] items-center gap-16">
         {/* Left: coach portrait */}
         <div className="relative">
           <div className="relative aspect-[4/5]">
@@ -18,7 +18,7 @@ export default function About() {
               alt="Coach editorial portrait in warm tones"
               fill
               className="object-cover"
-              sizes="40vw"
+              sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
           <div className="absolute bottom-4 left-4 bg-black/70 px-3 py-2 font-atl-mono text-[10px] tracking-[0.14em] text-atl-paper">

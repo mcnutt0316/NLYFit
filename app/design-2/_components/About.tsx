@@ -9,7 +9,7 @@ const certs = [
 export default function About() {
   return (
     <section
-      className="relative overflow-hidden bg-volt-bg-alt px-14 py-[110px]"
+      className="relative overflow-hidden bg-volt-bg-alt px-6 lg:px-14 py-[110px]"
       aria-labelledby="volt-about-heading"
     >
       {/* volt-green accent bar top-right */}
@@ -18,7 +18,7 @@ export default function About() {
         aria-hidden="true"
       />
 
-      <div className="grid grid-cols-[1fr_1.2fr] items-center gap-14">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] items-center gap-14">
         {/* Left: coach photo with offset volt-green outline frame */}
         <figure className="relative m-0">
           <div

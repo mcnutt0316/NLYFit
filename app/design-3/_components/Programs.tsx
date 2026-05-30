@@ -48,9 +48,9 @@ const programs: Program[] = [
 
 export default function Programs() {
   return (
-    <section className="border-b border-atl-divider px-14 py-[110px]">
+    <section className="border-b border-atl-divider px-6 lg:px-14 py-[110px]">
       {/* Section header */}
-      <div className="mb-12 flex items-end justify-between">
+      <div className="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div>
           <div className="font-atl-mono text-[11px] uppercase tracking-[0.18em] text-atl-rust">
             02 — The Programs
@@ -68,8 +68,51 @@ export default function Programs() {
         </p>
       </div>
 
-      {/* Indexed program list */}
-      <div className="flex flex-col border-t border-atl-divider">
+      {/* Mobile card list — hidden on lg+ */}
+      <div className="flex flex-col border-t border-atl-divider lg:hidden">
+        {programs.map((p) => (
+          <div key={p.name} className="border-b border-atl-divider py-8">
+            <div className="relative h-[200px] overflow-hidden mb-5">
+              <Image
+                src={p.src}
+                alt={p.name}
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <div className="font-atl-mono text-[11px] uppercase tracking-[0.14em] text-atl-muted">
+              {p.sub}
+            </div>
+            <div className="font-atl-serif mt-1.5 text-[36px] leading-none text-atl-ink">
+              {p.no}. {p.name}
+              {p.featured && (
+                <span className="font-atl-mono ml-2 align-middle text-[10px] tracking-[0.16em] text-atl-rust">
+                  ★ MOST PICKED
+                </span>
+              )}
+            </div>
+            <p className="font-atl-serif m-0 mt-3 text-[17px] leading-[1.4] text-atl-ink-dim">
+              {p.desc}
+            </p>
+            <div className="mt-4 flex items-end justify-between">
+              <div>
+                <div className="font-atl-mono text-[10px] tracking-[0.14em] text-atl-muted">FROM</div>
+                <div className="font-atl-serif text-[40px] leading-none text-atl-ink">
+                  ${p.price}
+                  <span className="font-atl-mono text-[13px] tracking-[0.06em] text-atl-muted">/mo</span>
+                </div>
+              </div>
+              <a className="font-atl-body cursor-pointer border-b border-atl-ink pb-0.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-atl-ink">
+                Read More →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop indexed row list — hidden below lg */}
+      <div className="hidden lg:flex flex-col border-t border-atl-divider">
         {programs.map((p) => (
           <div
             key={p.name}
